@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+<link rel="stylesheet" href="fontAwesome/css/font-awesome.min.css">
+
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <title>M3 Printer Setup</title>
+
+
+<script>
+
+
+function populateSerial0()
+{
+
+  //wifiPass = document.getElementById("wifiPass");
+  //wifiName = document.getElementById("wifiName");
+  //octoPass = document.getElementById("octoPass");
+  octoPass1 = document.getElementById("octoPass1");
+
+
+  localLinkWifi = document.getElementById("localLinkWifi");
+
+
+
+  //wifiNameVar = wifiName.innerHTML.replace("*****", "");
+
+
+  //wifiPass.innerHTML = document.getElementById("serial0").value;
+  //wifiName.innerHTML = "M3Printer"  + document.getElementById("serial0").value.substring(3);
+  //octoPass.innerHTML = document.getElementById("serial0").value;
+  octoPass1.innerHTML = document.getElementById("serial0").value;
+  localLinkWifi.innerHTML = "http://m3printer"  + document.getElementById("serial0").value.substring(3) + ".local";
+  localLinkWifi.href = "http://m3printer"  + document.getElementById("serial0").value.substring(3) + ".local";
+
+
+}
+</script>
+
+<style>
+code{
+padding: 2px 4px;
+color: #FF6E35;
+background-color: #f7f7f9;
+border: 1px solid #e1e1e8;
+}
+h1{
+  color:#000000;
+}
+
+a{
+   color:#FF6E35;
+}
+.mgText{
+  font-weight: bold;
+} 
+
+
+ul.setupList{
+   list-style: none;
+
+font-size:30px;
+padding-bottom:15px;
+}
+
+ul.setupList li{
+
+   background: url('images/check.png') no-repeat;
+   line-height: 45px;
+   vertical-align: middle;
+   padding-left: 50px;
+   padding-bottom:25px;
+}
+
+
+
+
+
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: block;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+
+input[type=text], select {
+    
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size:30px;
+}
+
+
+
+</style>
+
+<style>
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+
+.tooltip{
+  position:relative;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+ .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+
+
+ .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: -100px; /* At the bottom of the tooltip */
+    left: 0%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent   transparent;
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+
+</head>
+
+<body style=" padding:0px;margin:0px;background-color:#FFFFFF;font-family: 'Roboto', sans-serif; color:#484848;">
+
+
+<div id="navBar" style="background-color:#FF6E35;border-bottom:1px black solid;">
+  <img src="images/logo4.png" style=" width:200px; padding:0px;margin:0px;x-blend-mode: multiply;"/>
+</div>
+
+<div id="content" style="color:black; padding: 10px;">
+  <div id="title" style="width:500px;margin-left:auto;margin-right:auto;"> 
+    <img src="images/ethernet.png" style="float:left;width:100px;">
+      <h1 style="text-align:center;">
+      </h1>
+        <h1 style="text-align:center;"> MakerGear M3<br />
+        Ethernet Setup Guide 
+        </h1>
+      <hr />
+
+
+
+  </div>
+
+<div style="clear:both;"></div>
+<h4> Reccomended Browser: <a href="https://www.google.com/chrome/browser/features.html">  Google Chrome <i class="fa fa-chrome" aria-hidden="true"></i></a> 
+
+
+ <a style="" href="#" onClick="window.open('browsers.html','pagename','resizable=no,height=250,width=250'); return false;">
+<br />
+ Other Supported Browsers <i class="fa fa-firefox" aria-hidden="true"></i> <i class="fa fa-safari" aria-hidden="true"></i>
+  <i class="fa fa-internet-explorer" aria-hidden="true"></i>
+</a>  </h2>
+
+  <hr />
+  <p>
+  This guide will help you connect to your M3 printer to your network via an ethernet cable. You will then be able to connect to your printer from any other device on your network, whether they are connected via wifi or ethernet. If you have not already pyhsically set up your printer, download the <a href="">M3 Manual</a>.
+
+  </p>
+
+  <hr />
+  <p>
+
+  
+
+  </p>
+<!--
+
+  <div class="step" style="margin:0px;padding:10px">
+    <div style="width:200px;text-align:center; font-size:30px; margin-left:auto;margin-right:auto;width:300px;border-bottom:1px solid black;">
+    <img src="images/demeter.png" style="width:150px;"/>
+    <br />
+    <span style="color:#000000;">Printer Setup</span>
+    </div>
+
+    <em>Need to include setup instructions here (unbox, glass, etc)</em>
+    <br />
+
+    <p>
+      Once you have physically setup your printer, you can connect to your printer's user interface. Click one of the options below for connection instructions.  For best reliability, an ethernet connection is recommended. 
+
+  </div>
+-->
+
+
+<style>
+.container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+
+
+   
+
+  <div id="Ethernet" class="tabcontent">
+    <h3>Ethernet</h3>
+
+
+
+      <ul  class="setupList">
+
+
+        <li><span class="mgText">Enter</span> your MakerGear M3's serial number into the following field. You can find your serial number on the back of your M3. All letters should be capitalized.<br />
+
+          <input style="size" type="text" name="serial" id="serial0" value="" oninput="populateSerial0();">
+
+
+
+        <li><span class="mgText">Plug</span> your ethernet cable from your router to your MakerGear M3
+        <li><span class="mgText">Power-on</span> your MakerGear M3 and wait 1-2 minutes
+        <li><span class="mgText">Connect</span> your computer/tablet to your local home/office network either via ethernet or wifi.
+      
+        <li> Windows users must <span class="mgText">download and install</span> the <a href="https://support.apple.com/kb/dl999?locale=en_US" target="_blank">Bonjour Print Services for Windows.</a>
+
+        <li><span class="mgText">Navigate</span> to your MakerGear M3's   <a href="" id="localLinkWifi"> http://m3printerxxxxx.local</a> to access the user interface.
+
+
+        <li>In the upper right hand corner of your user interface, click   <span class="mgText">Login</span>  and enter the following login credentials.
+        <br />
+
+        <br />
+        Username:<code>printer</code> 
+
+        <br />
+
+        Password   <span class="tooltip">
+            <span class="tooltiptext">Your defualt Octoprint password will be your serial number</span>
+          <i class="fa fa-question-circle octoPassQuestion1" aria-hidden="true"></i>
+          </span>
+          : <code id="octoPass1">********</code> 
+
+        
+
+
+
+        <li><span class="mgText">Click</span>  "Begin Quick Check"  in the user interface to get started testing your printer.
+
+        <br/>
+        <br/>
+        <span style="font-size:20px;"> * If you experience connectivity issues, you can manually scan for the MakerGear M3 and connect to it using the <a href="networkScan.html">Find My Printer Tool</a></span>. 
+      </ul> 
+
+        <table style="width:80%;margin-left:auto;margin-right:auto;">
+          <tr>
+            <td style="width:10%;">
+
+              <!--<img src="images/info.png" style="margin-top:70px; width:45px">-->
+            </td>
+  <!--
+            <td style="width:40%;text-align:center;">
+              <img src="images/demeter.png" style="display:block; margin-left:auto;margin-right:auto; width:100px;">
+              <br />
+              Go to my printer
+            </td>
+
+            <td style="width:40%;text-align:center;">
+              <img src="images/scan.png" style="display:block; margin-left:auto;margin-right:auto;">
+              <br />
+              Find my printer
+            </td>
+  -->
+          </tr>
+        </table>
+
+        <div style ="border-bottom:#484848 solid 10px;margin-bottom:30px;margin-top:25px;"> </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+<script>
+function openInstructions(evt, instructionName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(instructionName).style.display = "block";
+    evt.currentTarget.className += " active";
+
+    document.getElementById(instructionName).scrollIntoView(true);
+
+}
+</script>
+
+
+
+</body>
+
+</html>
+
+
