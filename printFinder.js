@@ -15,7 +15,9 @@ function getUserIP(onNewIP) { //  onNewIp - your listener function for new IPs
   localIPs = {},
   ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g,
   key;
-  // Recall from hostname.js, var ip = ["31","-1"];
+  // Function declaration for iterateIP
+  // Recall from hostname.js, var ip = ["31","-1"] ???
+  // the ip argument in this case is a subnet
   function iterateIP(ip) {
       // if this new IP (31, -1) is not found in the array of localIPs, then call the onNewIP function, passing it this ip
       if (!localIPs[ip]) onNewIP(ip);
@@ -25,8 +27,11 @@ function getUserIP(onNewIP) { //  onNewIp - your listener function for new IPs
   pc.createDataChannel("");
   // create offer and set local description
   pc.createOffer().then(function(sdp) {
+      // grab each newline of the SDP (Session Description Protocol)
       sdp.sdp.split('\n').forEach(function(line) {
+          //for each new line
           if (line.indexOf('candidate') < 0) return;
+          // call iterateIP for each ip address found
           line.match(ipRegex).forEach(iterateIP);
       });
       pc.setLocalDescription(sdp, noop, noop);
@@ -165,6 +170,8 @@ function scanPrinter()
     // Call getUserIP, passing it this anonymous function
     getUserIP(function(ip)
     {
+    // This anonymous function accepts a subnet as a parameter, then
+    //   iterates through all 255 ip addresses on the given subnet and updates the DOM with found octoprint instances
       console.log(ip);
      // alert("IP:" + ip);
       subnet = String(ip).split(".");
