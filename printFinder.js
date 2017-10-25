@@ -117,13 +117,14 @@ function scanPrinter()
       imageDiv.innerHTML = imageDiv.innerHTML + '<img src="' + imageUrl  + '" />';
     }
     var scanCount = 0;
-    // Iterate through all 255 ip addresses on this subnet
+    // Iterate through all 255 ip addresses on this subnet and check to see if the octoprint image can be loaded
     for ( i = 0; i < topScan + 1; i ++)
     {
       var imageUrl = 'http://' + newIp +  i + '/static/img/tentacle-20x20.png';
       var octoUrl = 'http://' + newIp +  i + '';
       //console.log(imageUrl);
       img[i] = new Image();
+      // attach a handler to fire when an image is loaded - this means a printer was found
       img[i].onload = function () 
       {
         //alert(allText);
@@ -133,7 +134,8 @@ function scanPrinter()
         // Remember, we're in a function handler for an image loaded from the server, so this.src is the url of the image loaded
         newOctoUrl = this.src.split("/static");
         // Load the hostname.js javascript file from the printer - this file contains the printer's local IP address (e.g. 31, -1)
-        // this file contains the following line: var ip = ["31","-1"];
+        //   contains the following line: var ip = ["31","-1"];
+        //   adds the hostName (e.g. M3Printer68X58) to the DOM
         loadJS(newOctoUrl[0] + "/plugin/mgsetup/static/js/hostname.js");
         //a.innerHTML = String(i);
         nip = newOctoUrl[0].split(".");
